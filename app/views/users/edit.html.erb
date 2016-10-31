@@ -1,0 +1,96 @@
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<form>
+  <div class="container">
+    <h1>Edit Profile</h1><br>
+
+
+    <div class="form-group row">
+      <label for="last_name" class="col-xs-3 col-form-label"><%= f.label :first_name %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :first_name %>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="last_name" class="col-xs-3 col-form-label"><%= f.label :last_name %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-xs-3 col-form-label"><%= f.label :email %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :email,:readonly => true %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-xs-3 col-form-label"><%= f.label :contact_number %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :contact_number %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="profile_image" class="col-xs-3 col-form-label"><%= f.label :profile_image %></label>
+      <div class="col-xs-9">
+        <img src="<%= @user.profile_img_url %>" alt="" class="profileImg" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="change_profile_image" class="col-xs-3 col-form-label"><%= f.label :change_profile_image %></label>
+      <div class="col-xs-9">
+        <%= f.file_field :profile_img_url  %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="bio" class="col-xs-3 col-form-label"><%= f.label :bio %></label>
+      <div class="col-xs-9">
+        <%= f.text_area :bio %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="bio" class="col-xs-3 col-form-label"><%= f.label :home_city %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :city %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="bio" class="col-xs-3 col-form-label"><%= f.label :country %></label>
+      <div class="col-xs-9">
+        <%= f.text_field :country %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="offset-xs-3 col-xs-9">
+        <%= f.submit "Submit", class: "btn btn-primary active" %>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
