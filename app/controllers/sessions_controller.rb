@@ -8,10 +8,12 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      redirect_to '/login'
     end
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to '/login'
   end
 end

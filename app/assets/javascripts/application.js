@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require semantic-ui
+
+$(document).on('turbolinks:load', function(){
+  $('.right.menu.open').on("click",function(e){
+    e.preventDefault();
+    $('.ui.vertical.menu').toggle();
+  });
+
+  $('.ui.dropdown').dropdown();
+});
