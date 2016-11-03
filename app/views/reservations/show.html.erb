@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @reservation.restaurant.restaurant_name %></h1>
+<%= @reservation.inspect %>
+<% @reservation.users.each do |user| %>
+  Booked by <%= user.first_name %>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

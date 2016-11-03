@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dumelt9c0
+  api_key: '742378123567198'
+  api_secret: j7zNbmCH2c7B7ICN_BykovJqLFM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dumelt9c0
+  api_key: '742378123567198'
+  api_secret: j7zNbmCH2c7B7ICN_BykovJqLFM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dumelt9c0
+  api_key: '742378123567198'
+  api_secret: j7zNbmCH2c7B7ICN_BykovJqLFM
+  enhance_image_tag: true
+  static_image_support: false

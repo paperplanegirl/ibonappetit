@@ -1,0 +1,54 @@
+
+<%= form_for(restaurant) do |f| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form class="ui form">
+
+  <div class="field">
+    <%= f.label :restaurant_name %>
+    <%= f.text_field :restaurant_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div>
+
+  <div class="field">
+      <%= f.label :restaurant_city %>
+      <%= f.text_field :restaurant_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :restaurant_country %>
+    <%= f.text_field :restaurant_country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :restaurant_img %>
+    <%= f.text_field :restaurant_profile_img_url%>
+  </div>
+
+  <button class="ui button" type="submit">Submit</button>
+</form>
+<% end %>

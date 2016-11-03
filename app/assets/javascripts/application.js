@@ -10,17 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require semantic-ui
+// = require jquery
+// = require jquery_ujs
+// = require turbolinks
+// = require_tree .
+// = require semantic-ui
 
-$(document).on('turbolinks:load', function(){
-  $('.right.menu.open').on("click",function(e){
-    e.preventDefault();
-    $('.ui.vertical.menu').toggle();
-  });
+$(document).on('turbolinks:load', function () {
+  $('.right.menu.open').on('click', function (e) {
+    e.preventDefault()
+    $('.ui.vertical.menu').toggle()
+  })
 
-  $('.ui.dropdown').dropdown();
-});
+  $('.ui.dropdown').dropdown()
+
+  $('#login-button').click(function() {
+    $('#login-modal').modal('show')
+  })
+
+})

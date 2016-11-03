@@ -1,34 +1,24 @@
-<nav class="navbar navbar-static-top navbar-light bg-faded">
-  <div class="container-fluid">
-      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation"> &#9776;</button>
+<div class="ui secondary pointing menu">
+  <a class="item" href="/">
+    iBonAppetit
+  </a>
 
-      <!-- Brand -->
-      <a class="navbar-brand" href="/">ibonappetit</a>
 
-      <div class="collapse navbar-toggleable-xs" id="e  xCollapsingNavbar2">
-        <ul class="nav navbar-nav">
-          <!-- Links -->
-          <ul class="nav navbar-nav pull-xs-right">
-            <%if @current_user != nil%>
+  <div class="right menu">
+    <% if @current_user %>
+    <a class="ui item" href="#">Profile</a>
 
-            <%end%>
+    <% else %>
+    <a class="ui item" href="/users/new">Sign Up</a>
+    <a class="ui item" href="/login">Log In</a>
+    <a class="ui item" <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %> </a>
 
-            <% if @current_user %>
+    <% end %>
 
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= @current_user.first_name %></a>
+  </div>
 
-              </li>
+</div>
 
-              <li class="nav-item">
-                  <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
-              </li>
-            <% else %>
-              <li class="nav-item"> <a class="nav-link" href="/users/new">Sign Up</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="/login">Log In</a> </li>
-            <% end %>
-
-          </ul>
-        </div> <!--end of <div class="collapse navbar-toggleable-xs" -->
-  </div><!--End of <div> container-fluid-->
-</nav>
+<!-- <div class="ui segment">
+  <p></p>
+</div> -->

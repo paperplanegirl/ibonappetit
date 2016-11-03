@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031035032) do
+ActiveRecord::Schema.define(version: 20161103021459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.date     "bookmark_date"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.integer  "number_of_seats"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "partner_id"
+    t.boolean  "partner_accepted"
+    t.datetime "reservation_date"
+  end
+
+  create_table "reservations_users", force: :cascade do |t|
+    t.integer "user_id",        null: false
+    t.integer "reservation_id", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "restaurant_name"
+    t.string   "cuisine"
+    t.text     "address"
+    t.string   "restaurant_city"
+    t.string   "restaurant_country"
+    t.integer  "rating"
+    t.string   "restaurant_profile_img_url"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "restaurants_users", id: false, force: :cascade do |t|
+    t.integer "user_id",       null: false
+    t.integer "restaurant_id", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
