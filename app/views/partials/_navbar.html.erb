@@ -6,7 +6,7 @@
   <div class="right menu">
     <% if @current_user %>
     <a class="ui item" href="#">Welcome, <%= @current_user.first_name %></a>
-    <a class="ui item" href="/users/<%= @current_user.id %>/edit">Profile</a>
+    <a class="ui item" href="/users/<%= @current_user.id %>/edit">Edit Profile</a>
     <a class="ui item" <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></a>
 
     <% else %>

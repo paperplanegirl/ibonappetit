@@ -1,8 +1,6 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 body > .grid {
   height: 100%;
 }
@@ -15,4 +13,14 @@ body > .grid {
 
 .ui.middle.aligned.center.aligned.grid {
   margin-top: 200px;
+}
+
+.ui.form.user-edit {
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 100px;
+}
+
+.field {
+  font-size: 14px;
 }
