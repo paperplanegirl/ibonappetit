@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # has_many  :restaurants , dependent: :destroy
-
 
   has_and_belongs_to_many :reservations, dependent: :destroy
 

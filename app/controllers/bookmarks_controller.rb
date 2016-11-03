@@ -2,13 +2,11 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
   # GET /bookmarks
-  # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.all
   end
 
   # GET /bookmarks/1
-  # GET /bookmarks/1.json
   def show
   end
 
@@ -19,7 +17,6 @@ class BookmarksController < ApplicationController
     @restaurant = Restaurant.find_by_id(restaurant_id)
     user_id = params[:user]
     @user = User.find_by_id(user_id)
-
   end
 
   # GET /bookmarks/1/edit
@@ -27,7 +24,6 @@ class BookmarksController < ApplicationController
   end
 
   # POST /bookmarks
-  # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user_id = @current_user.id
@@ -45,7 +41,6 @@ class BookmarksController < ApplicationController
   end
 
   # PATCH/PUT /bookmarks/1
-  # PATCH/PUT /bookmarks/1.json
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
@@ -59,7 +54,6 @@ class BookmarksController < ApplicationController
   end
 
   # DELETE /bookmarks/1
-  # DELETE /bookmarks/1.json
   def destroy
     @bookmark.destroy
     respond_to do |format|

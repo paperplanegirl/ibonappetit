@@ -2,13 +2,11 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
-  # GET /reservations.json
   def index
     @reservations = Reservation.all
   end
 
   # GET /reservations/1
-  # GET /reservations/1.json
   def show
   end
 
@@ -26,7 +24,6 @@ class ReservationsController < ApplicationController
   end
 
   # POST /reservations
-  # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.partner_accepted = false
@@ -47,7 +44,6 @@ class ReservationsController < ApplicationController
   end
 
   # PATCH/PUT /reservations/1
-  # PATCH/PUT /reservations/1.json
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
@@ -61,7 +57,6 @@ class ReservationsController < ApplicationController
   end
 
   # DELETE /reservations/1
-  # DELETE /reservations/1.json
   def destroy
     @reservation.destroy
     respond_to do |format|
@@ -80,7 +75,4 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:first_name, :last_name, :number_of_seats, :reservation_date, :restaurant_name, :restaurant_id, :partner_id)
     end
-
-
-
 end

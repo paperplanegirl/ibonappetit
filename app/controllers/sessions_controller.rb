@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/'
   end
+
   private
   def user_params
     params.require(:session).permit(:email, :password)
