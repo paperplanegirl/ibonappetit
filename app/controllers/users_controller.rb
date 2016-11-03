@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :is_authenticated, only:[:update, :destroy, :show, :edit]
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   # before_action :is_admin?, except: [:new, :create, :edit, :update, :show]
   # before_action :ownership, only: [:edit, :update]
 
