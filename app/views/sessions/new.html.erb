@@ -1,12 +1,27 @@
+
 <%= form_for(:session, url: login_path) do |f| %>
-
-<h1>Log in</h1>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, placeholder: "Enter your email" %><br></br>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "Enter your password" %><br></br>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <div class="ui stacked secondary  segment">
+      <h1>Log in</h1>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= f.email_field :email, placeholder: "Email" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div>
+      </div>
+      <br></br>
+      <%= f.submit "Log in", class:"ui fluid big blue submit button" %>
+      <% end %>
+      <div class="ui message">
+        <a href="/users/new">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
