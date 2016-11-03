@@ -42,7 +42,7 @@
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
 
-<h2>This restaurant has been bookmarked by the following users:</h2>
+<h4>This restaurant has been bookmarked by the following users:</h4>
 <% @bookmarks.each do |bookmark| %>
   <%= bookmark.user.first_name =%> <%= bookmark.user.last_name =%>
 <% end %>
