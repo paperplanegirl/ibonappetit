@@ -1,47 +1,51 @@
-<h1>New User</h1>
-
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count,"error") %> prohibited this @user from being saved:</h2>
-
-    <ul>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count,"error") %> prohibited this @user from being saved:</h2>
+  <ul>
     <% @user.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
 </div>
 <%end%>
-
-<div class="field">
-  <%= f.label :first_name %>
-  <%= f.text_field  :first_name %>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <div class="ui stacked secondary  segment">
+      <h1>Sign Up</h1>
+      <div class="field">
+        <div class="ui large icon input">
+          <%= f.text_field :first_name, placeholder: "First Name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui large icon input">
+          <%= f.text_field  :last_name, placeholder: "Last Name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui large icon input">
+          <%= f.text_field :email, placeholder: "Email" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui large icon input">
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui large icon input">
+          <%= f.text_field  :city, placeholder: "Home City" %>
+        </div>
+      </div>
+      <br></br>
+      <div class="action">
+        <%= f.submit class:"ui fluid big blue submit button" %>
+        <% end %>
+      </div>
+      <div class="ui message">
+        <a href="/login">Login</a>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="field">
-  <%= f.label :last_name %>
-  <%= f.text_field  :last_name %>
-</div>
-
-<div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</div>
-
-<div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-</div>
-
-<div class="field">
-  <%= f.label  :home_city %>
-  <%= f.text_field  :city %>
-</div>
-
-<div class="action">
-  <%= f.submit %>
-</div>
-<%= link_to 'Back', users_path %>
-
-
-<% end %>
