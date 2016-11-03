@@ -35,7 +35,14 @@
   <%= @restaurant.restaurant_profile_img_url %>
 </p>
 
+<%= link_to 'New Bookmark', new_bookmark_path(:restaurant => @restaurant) %> |
+
 <%= link_to 'New Reservation', new_reservation_path %> |
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
+<h2>This restaurant has been bookmarked by the following users:</h2>
+<% @bookmarks.each do |bookmark| %>
+  <%= bookmark.user.first_name =%> <%= bookmark.user.last_name =%>
+<% end %>

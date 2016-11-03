@@ -13,15 +13,27 @@
 
 <form class="ui form">
 
-  <!-- <div class="field">
-    <%= f.label :number_of_seats %>
-    <%= f.text_field :number_of_seats %>
-  </div> -->
+<div class="field">
+  <%= f.label :name %>:
+  <%= @current_user.first_name %> <%= @current_user.last_name %>
+</div>
+
+
+<div class="field">
+  <%= f.label :Partner_Accepted %>
+  <%= f.text_field :partner_accepted %>
+</div>
+
+<div class="field">
+  <%= f.label :reservation_date %>
+  <%= f.datetime_field :reservation_date %>
+</div>
 
 <div class="field">
   <%= f.label :number_of_seats %>
   <%= f.text_field :number_of_seats %>
 </div>
+
 
 </form>
 

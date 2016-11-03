@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   def show
+    @bookmarks = Bookmark.where({restaurant_id: @restaurant.id})
   end
 
   # GET /restaurants/new

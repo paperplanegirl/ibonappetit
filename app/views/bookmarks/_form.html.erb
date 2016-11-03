@@ -1,3 +1,6 @@
+<h1>  <%= @restaurant.restaurant_name %></h1>
+
+
 <%= form_for(bookmark) do |f| %>
   <% if bookmark.errors.any? %>
     <div id="error_explanation">
@@ -10,6 +13,21 @@
       </ul>
     </div>
   <% end %>
+
+
+  <div class="field">
+    <%= f.label :name %>:
+    <%= @current_user.first_name %> <%= @current_user.last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :restaurant_id, value: @restaurant.id, type: "hidden" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bookmark_date %>:
+    <%= f.date_field :bookmark_date %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

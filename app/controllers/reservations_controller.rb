@@ -15,6 +15,10 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    restaurant_id = params[:restaurant]
+    @restaurant = Restaurant.find_by_id(restaurant_id)
+    user_id = params[:user]
+    @user = User.find_by_id(user_id)
   end
 
   # GET /reservations/1/edit
