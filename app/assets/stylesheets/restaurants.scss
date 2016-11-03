@@ -1,3 +1,17 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ui.link.cards {
+  margin-top: 100px;
+}
+
+.ui.form.restaurant-new {
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 100px;
+}
+
+.field {
+  font-size: 18px;
+}

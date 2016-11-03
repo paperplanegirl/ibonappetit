@@ -1,70 +1,65 @@
 <form class="ui form user-edit">
-
-<%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<div class="field">
-  <label>First Name</label>
-  <%= f.text_field :first_name %>
-</div>
-
-<div class="field">
-  <label>Last Name</label>
-  <%= f.text_field :last_name %>
-</div>
-
-<div class="field">
-  <label>Email</label>
-  <%= f.email_field :email,:readonly => true %>
-</div>
-
-<div class="field">
-  <label>Contact Number</label>
-  <%= f.text_field :contact_number %>
-</div>
-
-<div class="field">
-  <label>Profile Image</label>
-  <img src="<%= @user.profile_img_url %>" alt="" class="profileImg" />
-</div>
-
-<div class="field">
-  <label>Change Profile Image</label>
-  <%= f.file_field :profile_img_url  %>
-</div>
-
-<div class="field">
-  <label>Bio</label>
-  <%= f.text_area :bio %>
-</div>
-
-<div class="field">
-  <label>Home City</label>
-  <%= f.text_field :city %>
-</div>
-
-
-<div class="field">
-  <label>Country</label>
-  <%= f.text_field :country %>
-</div>
-
-<div class="form-group row">
-  <div class="offset-xs-3 col-xs-9">
-    <%= f.submit "Submit", class: "ui fluid big blue submit button" %>
-
+  <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
-</div>
-</div>
+  <% end %>
+
+<h1>Edit Profile</h1>
+  <div class="field">
+    <label>First Name</label>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <label>Last Name</label>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <%= f.email_field :email,:readonly => true %>
+  </div>
+
+  <div class="field">
+    <label>Contact Number</label>
+    <%= f.text_field :contact_number %>
+  </div>
+
+  <div class="field">
+    <label>Profile Image</label>
+    <img src="<%= @user.profile_img_url %>" alt="" class="profileImg" />
+  </div>
+
+  <div class="field">
+    <label>Change Profile Image</label>
+    <%= f.file_field :profile_img_url  %>
+  </div>
+
+  <div class="field">
+    <label>Bio</label>
+    <%= f.text_area :bio %>
+  </div>
+
+  <div class="field">
+    <label>Home City</label>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <label>Country</label>
+    <%= f.text_field :country %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.submit "Submit", class: "ui big blue submit button" %>
+  </div>
 </form>
 
 <% end %>

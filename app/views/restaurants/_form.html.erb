@@ -1,54 +1,53 @@
-
-<%= form_for(restaurant) do |f| %>
+<form class="ui form restaurant-new">
+  <%= form_for(restaurant) do |f| %>
   <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
-
-      <ul>
+  <div id="error_explanation">
+    <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+    <ul>
       <% restaurant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-  <form class="ui form">
+  <h1>New Restaurant</h1>
 
-  <div class="field">
-    <%= f.label :restaurant_name %>
+    <div class="field">
+    <label>Restaurant Name</label>
     <%= f.text_field :restaurant_name %>
   </div>
 
   <div class="field">
-    <%= f.label :cuisine %>
+    <label>Cuisine</label>
     <%= f.text_field :cuisine %>
   </div>
 
   <div class="field">
-    <%= f.label :address %>
-    <%= f.text_area :address %>
+    <label>Address</label>
+    <%= f.text_field :address %>
   </div>
 
   <div class="field">
-      <%= f.label :restaurant_city %>
-      <%= f.text_field :restaurant_city %>
+    <label>Restaurant City</label>
+    <%= f.text_field :restaurant_city %>
   </div>
 
   <div class="field">
-    <%= f.label :restaurant_country %>
+    <label>Restaurant Country</label>
     <%= f.text_field :restaurant_country %>
   </div>
 
   <div class="field">
-    <%= f.label :rating %>
+    <label>Rating</label>
     <%= f.text_field :rating %>
   </div>
 
   <div class="field">
-    <%= f.label :restaurant_img %>
-    <%= f.text_field :restaurant_profile_img_url%>
+    <label>Restaurant Image</label>
+    <%= f.text_field :restaurant_profile_img_url %>
   </div>
 
-  <button class="ui button" type="submit">Submit</button>
+  <%= f.submit "Submit", class: "ui blue submit button" %>
 </form>
 <% end %>

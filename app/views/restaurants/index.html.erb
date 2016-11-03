@@ -2,39 +2,51 @@
 
 <h1>Restaurants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Restaurant Name</th>
-      <th>Cuisine</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Rating</th>
-      <th>Profile Image</th>
-      </tr>
-  </thead>
 
-  <tbody>
+
     <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.restaurant_name %></td>
-        <td><%= restaurant.cuisine %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.restaurant_city %></td>
-        <td><%= restaurant.restaurant_country %></td>
-        <td><%= restaurant.rating %></td>
-        <td><img src="<%= restaurant.restaurant_profile_img_url %>" alt="" /></td>
-      <!-- <td><%= restaurant.restaurant_profile_img_url %></td> -->
 
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
+
+
+<% @restaurants.each do |restaurant| %>
 <%= link_to 'New Restaurant', new_restaurant_path %>
+
+
+<div class="ui link cards">
+  <div class="card">
+    <div class="image">
+      <img src="<%= restaurant.restaurant_profile_img_url %>" alt="" />
+    </div>
+    <div class="content">
+      <div class="header"><%= restaurant.restaurant_name %></div>
+      <div class="meta">
+        <%= restaurant.cuisine %>
+      </div>
+      <div class="description">
+        <%= restaurant.rating %>
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        <%= restaurant.restaurant_city %>
+      </span>
+      <span>
+        <%= restaurant.restaurant_country %>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+<%= link_to 'Show', restaurant %>
+<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+<%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
