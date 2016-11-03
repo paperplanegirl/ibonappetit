@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @reservation.restaurant.restaurant_name %></h1>
+<p>
+  <%= @reservation.users.inspect%>
+</p>
 <%= @reservation.inspect %>
 <% @reservation.users.each do |user| %>
   Booked by <%= user.first_name %>
