@@ -37,7 +37,7 @@
 
 <%= link_to 'New Bookmark', new_bookmark_path(:restaurant => @restaurant) %> |
 
-<%= link_to 'New Reservation', new_reservation_path %> |
+<%= link_to 'New Reservation', new_reservation_path(:restaurant => @restaurant) %> |
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

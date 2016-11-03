@@ -1,3 +1,5 @@
+<h1><%= @restaurant.restaurant_name %></h1>
+
 <%= form_for(reservation) do |f| %>
   <% if reservation.errors.any? %>
     <div id="error_explanation">
@@ -18,10 +20,8 @@
   <%= @current_user.first_name %> <%= @current_user.last_name %>
 </div>
 
-
 <div class="field">
-  <%= f.label :Partner_Accepted %>
-  <%= f.text_field :partner_accepted %>
+  <%= f.text_field :restaurant_id, value: @restaurant.id, type: "hidden" %>
 </div>
 
 <div class="field">
@@ -34,6 +34,9 @@
   <%= f.text_field :number_of_seats %>
 </div>
 
+<div class="actions">
+  <%= f.submit %>
+</div>
 
 </form>
 
