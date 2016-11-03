@@ -1,6 +1,6 @@
-<div class="ui secondary pointing menu">
+<div class="ui fixed inverted secondary pointing menu">
   <a class="item" href="/">
-    iBonAppetit
+    <h3>iBonAppetit</h3>
   </a>
 
 
@@ -8,17 +8,15 @@
     <% if @current_user %>
     <a class="ui item" href="#">Welcome, <%= @current_user.first_name %></a>
     <a class="ui item" href="/users/<%= @current_user.id %>/edit">Profile</a>
-    <a class="ui item" <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %> </a>
+    <a class="ui item" <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></a>
 
     <% else %>
     <a class="ui item" href="/users/new">Sign Up</a>
     <a class="ui item" href="/login">Log In</a>
     <a class="ui item" <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %> </a>
-
     <% end %>
 
   </div>
-
 </div>
 
 <!-- <div class="ui segment">

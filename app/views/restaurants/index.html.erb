@@ -24,7 +24,8 @@
         <td><%= restaurant.restaurant_city %></td>
         <td><%= restaurant.restaurant_country %></td>
         <td><%= restaurant.rating %></td>
-        <td><%= restaurant.restaurant_profile_img_url %></td>
+        <td><img src="<%= restaurant.restaurant_profile_img_url %>" alt="" /></td>
+      <!-- <td><%= restaurant.restaurant_profile_img_url %></td> -->
 
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>

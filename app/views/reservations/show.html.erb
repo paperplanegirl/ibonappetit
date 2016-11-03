@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @reservation.restaurant.restaurant_name %></h1>
-<p>
-  <%= @reservation.users.inspect%>
-</p>
-<%= @reservation.inspect %>
-<% @reservation.users.each do |user| %>
-  Booked by <%= user.first_name %>
-<% end %>
+<div class="reservationShowPage">
+  <p id="notice"><%= notice %></p>
+  <h1><%= @reservation.restaurant.restaurant_name %></h1>
+  <p>
+    <% @reservation.users.each do |user| %>
+      <p>
+        Reserved by <%= user.first_name %> on <%= user.created_at %>
+      </p>
+    <%end%>
 
+  </p>
 
+  <% if @reservation.partner_id == nil %>
+    <p>
+      This reservation still has space for 1. Would you like to join <%= @reservation.users[0].first_name %> ?
+    </p>
+    <button type="button" name="button">Join the reservation!</button>
+  <% end %>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+  <br>
+  <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+  <%= link_to 'Back', reservations_path %>
+</div>
