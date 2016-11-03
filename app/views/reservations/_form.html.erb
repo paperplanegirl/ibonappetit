@@ -1,42 +1,45 @@
-<form class="ui form reservation-new">
-<%= form_for(reservation) do |f| %>
-  <% if reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+<h1><%= @restaurant.restaurant_name %></h1>
 
-      <ul>
+
+<form class="ui form reservation-new">
+  <%= form_for(reservation) do |f| %>
+  <% if reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+    <ul>
       <% reservation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-<form class="ui form">
-<h1>New Reservation</h1>
-<div class="field">
-Name:</label> <%= @current_user.first_name %> <%= @current_user.last_name %>
-</div>
+  <form class="ui form">
+    <h1>New Reservation</h1>
+    <div class="field">
+      <label>Name:</label> <%= @current_user.first_name %> <%= @current_user.last_name %>
+    </div>
 
-<div class="field">
-Restaurant Name: <%= f.text_field :restaurant_id, value: @restaurant.id, type: "hidden" %>
-<%= @restaurant.restaurant_name %>
-</div>
+    <div class="field">
+      <label>Restaurant Name:</label>
+      <%= f.text_field :restaurant_id, value: @restaurant.id, type: "hidden" %>
+    </div>
 
-<div class="field">
-<label>Reservation Details</label>
-<%= f.datetime_field :reservation_date %>
-</div>
+    <div class="field">
+      <label>Reservation Details</label>
+      <%= f.datetime_field :reservation_date %>
+    </div>
 
-<div class="field">
-<label>Number of Seats</label>
-<%= f.text_field :number_of_seats %>
-</div>
+    <div class="field">
+      <label>Number of Seats</label>
+      <%= f.text_field :number_of_seats %>
+    </div>
 
-<div class="actions">
-  <%= f.submit "Submit", class: "ui blue submit button" %>
-</div>
+    <div class="actions">
+      <%= f.submit "Submit", class: "ui blue submit button" %>
+    </div>
 
-</form>
+  </form>
 
-<% end %>
+  <% end %>

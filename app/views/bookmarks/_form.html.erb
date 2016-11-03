@@ -1,35 +1,34 @@
-<h1>  <%= @restaurant.restaurant_name %></h1>
-
-
-<%= form_for(bookmark) do |f| %>
+<form class="ui form bookmark-new">
+  <%= form_for(bookmark) do |f| %>
   <% if bookmark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
-
-      <ul>
+  <div id="error_explanation">
+    <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+    <ul>
       <% bookmark.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-
   <div class="field">
-    <%= f.label :name %>:
-    <%= @current_user.first_name %> <%= @current_user.last_name %>
+    <label>Name:</label>
+     <%= @current_user.first_name %> <%= @current_user.last_name %>
   </div>
 
+
   <div class="field">
+    <label>Restaurant Name:</label>
     <%= f.text_field :restaurant_id, value: @restaurant.id, type: "hidden" %>
+    <%= @restaurant.restaurant_name %>
   </div>
 
   <div class="field">
-    <%= f.label :bookmark_date %>:
+    <label>Bookmark Date</label>
     <%= f.date_field :bookmark_date %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "ui blue submit button" %>
   </div>
-<% end %>
+  <% end %>
