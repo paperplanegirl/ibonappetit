@@ -2,7 +2,7 @@
 
 <h1>Restaurants</h1>
 <%= link_to 'New Restaurant', new_restaurant_path %>
-<div class="ui link cards">
+<div class="ui link cards restaurantsIndex">
   <% @restaurants.each do |restaurant| %>
     <div class="card">
       <div class="image">
@@ -21,9 +21,7 @@
         <span class="right floated">
           <%= restaurant.restaurant_city %>
         </span>
-        <span>
-          <%= restaurant.restaurant_country %>
-        </span>
+      
       </div>
       <div class="restaurant-inlineblock">
       <%= link_to 'Show', restaurant %>
