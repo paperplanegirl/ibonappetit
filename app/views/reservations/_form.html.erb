@@ -1,8 +1,6 @@
 <h1><%= @restaurant.restaurant_name %></h1>
-
-
+<%= form_for(reservation) do |f| %>
 <form class="ui form reservation-new">
-  <%= form_for(reservation) do |f| %>
   <% if reservation.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>

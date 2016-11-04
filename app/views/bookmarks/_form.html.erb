@@ -1,5 +1,6 @@
+<h1><%= @restaurant.restaurant_name %></h1>
+<%= form_for(bookmark) do |f| %>
 <form class="ui form bookmark-new">
-  <%= form_for(bookmark) do |f| %>
   <% if bookmark.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>

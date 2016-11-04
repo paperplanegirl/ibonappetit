@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
   end
-  
+
   # GET /users/new
   def new
     @user = User.new
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
 
-    if params[:user][:profile_img_url]
-      uploaded_file = params[:user][:profile_img_url].path
-      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
-      params[:user][:profile_img_url] = cloudinary_file["url"]
-    end
+    # if params[:user][:profile_img_url]
+    #   uploaded_file = params[:user][:profile_img_url].path
+    #   cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    #   params[:user][:profile_img_url] = cloudinary_file["url"]
+    # end
     if @user.update(user_params)
       flash[:success] = "User account updated."
       redirect_to root_path
@@ -66,5 +66,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :city)
+    params.require(:user).permit(:first_name, :last_name, :email, :contact_number,:bio, :country, :password, :city, :profile_img_url)
   end
+end
