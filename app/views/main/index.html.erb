@@ -1,15 +1,11 @@
 <div class="background-image-main">
   <div class="center-content" >
     <div class="header">
-
       <%= image_tag 'food1.png' ,:class => 'index-image'%>
-
       <h2><span>iBonAppetit<br><br />Dine with Strangers<br><br/>
-
         <div class="ui fluid icon input">
           <input type="text" placeholder="Search city...">
           <i class="search icon"></i>
-
         </div>
       </span></h2>
     </div>
@@ -17,36 +13,28 @@
 </div>
 
 <p id="notice"><%= notice %></p>
-
 <h1>Restaurants</h1>
+
 <div class="ui link cards restaurantsIndex">
   <% @restaurants.each do |restaurant| %>
-    <div class="card">
-      <div class="image">
-        <img src="<%= restaurant.restaurant_profile_img_url %>" alt="" />
-      </div>
-      <div class="content">
-        <div class="header"><%= restaurant.restaurant_name %></div>
-        <div class="meta">
-          <%= restaurant.cuisine %>
-        </div>
-        <div class="description">
-          <%= restaurant.rating %>
-        </div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">
-          <%= restaurant.restaurant_city %>
-        </span>
-      </div>
-      <div class="restaurant-inlineblock">
-      <%= link_to 'Show', restaurant %>
-      <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-      <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <a class="card" href="/restaurants/<%= restaurant.id %>">
+    <div class="image">
+      <img src="<%= restaurant.restaurant_profile_img_url %>" alt="" />
     </div>
+    <div class="content">
+      <div class="header"><%= restaurant.restaurant_name %></div>
+      <div class="meta">
+        <%= restaurant.cuisine %>
+      </div>
+      <div class="description">
+        <%= restaurant.rating %>
+      </div>
     </div>
-
-
-    <% end %>
-
+    <div class="extra content">
+      <span class="right floated">
+        <%= restaurant.restaurant_city %>
+      </span>
+    </div>
+  </a>
+  <% end %>
 </div>

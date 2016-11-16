@@ -1,49 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Restaurant Name:</strong>
-  <%= @restaurant.restaurant_name %>
-</p>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= @restaurant.cuisine %>
-</p>
+<table class="ui five column table">
+  <thead>
+    <tr>
+      <th><strong>Restaurant Name:</strong>
+      <%= @restaurant.restaurant_name %></th>
+    </tr>
+    <tr>
+      <th><strong>Cuisine:</strong>
+      <%= @restaurant.cuisine %></th>
+    </tr>
+    <tr>
+      <th><strong>Address:</strong>
+      <%= @restaurant.address %></th>
+    </tr>
+    <tr>
+      <th><strong>Restaurant City:</strong>
+      <%= @restaurant.restaurant_city %></th>
+    </tr>
+    <tr>
+      <th><strong>Restaurant Country:</strong>
+        <%= @restaurant.restaurant_country %></th>
+    </tr>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+    <tr>
+      <th><strong>Rating:</strong>
+        <%= @restaurant.rating %></th>
+    </tr>
+  </thead>
+</table>
 
-<p>
-  <strong>Restaurant City:</strong>
-  <%= @restaurant.restaurant_city %>
-</p>
-
-<p>
-  <strong>Restaurant Country:</strong>
-  <%= @restaurant.restaurant_country %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @restaurant.rating %>
-</p>
-
-<p>
-  <strong>Restaurant Image:</strong>
-  <%= @restaurant.restaurant_profile_img_url %>
-</p>
-
-<%= link_to 'New Bookmark', new_bookmark_path(:restaurant => @restaurant) %> |
-
-<%= link_to 'New Reservation', new_reservation_path(:restaurant => @restaurant) %> |
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-
-<%= link_to 'Back', restaurants_path %>
-
+<div class="bookmark">
 <h4>This restaurant has been bookmarked by the following users:</h4>
 <% @bookmarks.each do |bookmark| %>
   <%= bookmark.user.first_name =%> <%= bookmark.user.last_name =%>
 <% end %>
+</div>
+
+<button class="ui black basic button"><%= link_to 'New Bookmark', new_bookmark_path(:restaurant => @restaurant) %></button>
+
+<button class="ui black basic button"><%= link_to 'New Reservation', new_reservation_path(:restaurant => @restaurant) %></button>
+
+<button class="ui black basic button"><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></button>
+
+</div>
