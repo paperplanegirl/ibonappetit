@@ -44,9 +44,11 @@ class UsersController < ApplicationController
     # end
     if @user.update(user_params)
       flash[:success] = "User account updated."
-      redirect_to root_path
+      puts "update successful"
+      redirect_to '/restaurants'
       return
     else
+      puts "update fail"
       render :edit
     end
   end
